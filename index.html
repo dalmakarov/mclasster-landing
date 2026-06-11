@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мастер Класстер — бронируй рабочий комплект в мастерской</title>
+<meta name="description" content="Рабочий комплект = рабочее место + набор инструментов. Бронируй слот на 30 минут, оплачивай онлайн, приходи и делай. От 200 ₽ за слот.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<meta property="og:title" content="Мастер Класстер">
+<meta property="og:description" content="Бронируй рабочий комплект в мастерской: место + инструменты, слоты по 30 минут, от 200 ₽.">
+<meta property="og:image" content="https://mclasster.ru/img/og.jpg">
+<meta property="og:url" content="https://mclasster.ru">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#3390ec; --primary-dark:#1f6fc4; --cyan:#00b8db; --cyan-bright:#22d3ee;
+  --ink:#1a1a1a; --ink-2:#6b7280; --ink-3:#9ca3af;
+  --bg:#f8fafc; --surface:#ffffff; --border:#e5e7eb;
+  --r-sm:8px; --r-md:16px; --r-lg:24px; --r-full:999px;
+  --sh-md:0 3px 6px rgba(0,0,0,.10); --sh-lg:0 8px 15px rgba(0,0,0,.10); --sh-xl:0 16px 40px rgba(0,0,0,.12);
+  --grad:linear-gradient(120deg,#22d3ee 0%,#3390ec 55%,#5b6cf0 100%);
+  --max:1160px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;font-size:17px;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+::selection{background:#bfe3ff}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(248,250,252,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav{display:flex;align-items:center;gap:28px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.02em;text-decoration:none}
+.logo img{width:34px;height:34px;border-radius:9px}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-size:15px;font-weight:500;color:var(--ink-2)}
+.nav-links a{text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--border);border-radius:var(--r-full);overflow:hidden;background:var(--surface)}
+.lang button{border:0;background:transparent;padding:7px 14px;font:600 13px 'Inter',sans-serif;cursor:pointer;color:var(--ink-2)}
+.lang button.on{background:var(--ink);color:#fff}
+.nav .cta{margin-left:4px}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:9px;border-radius:var(--r-full);padding:13px 24px;font:600 15px 'Inter',sans-serif;text-decoration:none;cursor:pointer;border:0;transition:transform .15s,box-shadow .15s,background .15s;white-space:nowrap}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:var(--sh-md)}
+.btn-primary:hover{background:var(--primary-dark);box-shadow:var(--sh-lg)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000}
+.btn-ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--border)}
+.btn-ghost:hover{border-color:var(--ink-3)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn.soon{opacity:.45;pointer-events:none;position:relative}
+.btn .soon-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:rgba(255,255,255,.25);padding:2px 7px;border-radius:var(--r-full)}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 0;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--primary);margin-bottom:22px}
+.eyebrow::before{content:'';width:26px;height:2px;background:var(--grad);border-radius:2px}
+h1{font-size:clamp(2.6rem,7vw,5.2rem);font-weight:900;letter-spacing:-.045em;line-height:1.02;max-width:13ch}
+h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--ink-2);max-width:46ch;margin:26px 0 36px;line-height:1.6}
+.hero-sub b{color:var(--ink);font-weight:600}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.hero-note{font-size:13px;color:var(--ink-3)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-phone-zone{order:2;margin-top:8px}}
+
+/* phone */
+.hero-phone-zone{position:relative;display:flex;justify-content:center;padding:24px 0 0}
+.phone{width:min(295px,72vw);border-radius:42px;background:#0e1320;padding:11px;box-shadow:var(--sh-xl),0 0 0 1px rgba(0,0,0,.06)}
+.phone .screen{border-radius:32px;overflow:hidden;background:#fff}
+.phone.tilt{transform:rotate(3deg)}
+.float-pill{position:absolute;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-full);padding:10px 18px;font-weight:700;font-size:14px;box-shadow:var(--sh-lg);white-space:nowrap}
+.float-pill.busy{background:var(--primary);color:#fff;border-color:var(--primary)}
+.fp1{top:9%;left:-4%;transform:rotate(-6deg)}
+.fp2{bottom:22%;right:-6%;transform:rotate(4deg)}
+.fp3{top:42%;right:-12%;transform:rotate(-3deg);background:var(--grad);color:#fff;border:0;font-size:15px}
+@media(max-width:560px){.fp3{right:-2%}.fp2{right:0}.fp1{left:0}}
+
+/* slot ticker */
+.slot-strip{margin:84px 0 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface);overflow:hidden;padding:14px 0}
+.slot-track{display:flex;gap:10px;width:max-content;animation:slide 36s linear infinite}
+@keyframes slide{to{transform:translateX(-50%)}}
+.slot{flex:none;border:1.5px solid var(--border);border-radius:var(--r-full);padding:9px 20px;font:600 14px 'Inter',sans-serif;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.slot.sel{background:var(--primary);border-color:var(--primary);color:#fff}
+
+/* ---------- sections ---------- */
+section{padding:96px 0}
+.sec-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);margin-bottom:18px}
+h2{font-size:clamp(2rem,4.6vw,3.3rem);font-weight:900;letter-spacing:-.035em;line-height:1.08}
+.lead{font-size:clamp(1rem,1.8vw,1.2rem);color:var(--ink-2);max-width:54ch;margin-top:20px}
+
+/* what = editorial problem/solution */
+.qa-list{margin-top:56px;border-top:1px solid var(--border)}
+.qa{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--border)}
+.qa .q{font-size:clamp(1.3rem,3.2vw,2.1rem);font-weight:800;letter-spacing:-.025em}
+.qa .a{font-size:clamp(1.05rem,2.4vw,1.5rem);font-weight:800;color:var(--ink-3)}
+.qa.hit .a{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.kit-def{margin-top:56px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:40px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;box-shadow:var(--sh-md)}
+.kit-def .formula{font-size:clamp(1.2rem,2.6vw,1.7rem);font-weight:800;letter-spacing:-.02em;line-height:1.35}
+.kit-def .formula em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.kit-icon{width:64px;height:64px;border-radius:18px;background:var(--grad);display:flex;align-items:center;justify-content:center;flex:none}
+.kit-icon svg{width:32px;height:32px;stroke:#fff}
+@media(max-width:640px){.kit-def{grid-template-columns:1fr;padding:28px}.qa{grid-template-columns:1fr}.qa .a{justify-self:start}}
+
+/* how it works */
+#how{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:64px}
+.step{position:relative}
+.step .num{font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--primary);margin-bottom:14px;display:block}
+.step .shot{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh-md);margin-bottom:18px;background:#f1f5f9;transition:transform .25s,box-shadow .25s}
+.step:hover .shot{transform:translateY(-6px);box-shadow:var(--sh-xl)}
+.step h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+.step p{font-size:.92rem;color:var(--ink-2)}
+@media(max-width:980px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* gallery */
+.gal-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.gallery{margin-top:48px;display:flex;gap:22px;overflow-x:auto;padding:10px 4px 28px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.gallery::-webkit-scrollbar{height:8px}
+.gallery::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.gal-item{flex:none;width:230px;scroll-snap-align:start}
+.gal-item .shot{border-radius:26px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh-lg);background:#0e1320;padding:7px}
+.gal-item .shot img{border-radius:20px}
+.gal-item figcaption{margin-top:12px;font-size:13px;font-weight:600;color:var(--ink-2);text-align:center}
+
+/* price */
+#price{padding:0}
+.price-band{background:var(--grad);border-radius:var(--r-lg);padding:64px 48px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;box-shadow:var(--sh-xl)}
+.price-band .big{font-size:clamp(2rem,5vw,3.4rem);font-weight:900;letter-spacing:-.03em;line-height:1.1}
+.price-band .sub{margin-top:10px;font-size:1.05rem;opacity:.92;max-width:42ch}
+.price-band .btn{background:#fff;color:var(--ink)}
+.price-band .btn:hover{background:#eef6ff}
+@media(max-width:640px){.price-band{padding:40px 28px}}
+
+/* faq */
+.faq{margin-top:52px;border-top:1px solid var(--border)}
+.faq details{border-bottom:1px solid var(--border)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:24px 4px;font-size:1.1rem;font-weight:700;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .x{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:18px;color:var(--ink-2);transition:transform .2s,background .2s}
+.faq details[open] summary .x{transform:rotate(45deg);background:var(--ink);color:#fff;border-color:var(--ink)}
+.faq .ans{padding:0 4px 26px;color:var(--ink-2);max-width:68ch}
+.faq .ans a{color:var(--primary);font-weight:600}
+
+/* contacts */
+#contacts{text-align:center}
+.mail-link{display:inline-block;margin-top:28px;font-size:clamp(1.4rem,4.5vw,2.6rem);font-weight:800;letter-spacing:-.03em;text-decoration:none;border-bottom:3px solid var(--primary);padding-bottom:4px;transition:color .15s}
+.mail-link:hover{color:var(--primary)}
+
+/* footer */
+footer{background:var(--ink);color:#9ca3af;padding:56px 0 40px;font-size:14px}
+.f-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.f-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:16px}
+.f-brand img{width:30px;height:30px;border-radius:8px}
+.f-links{display:grid;gap:10px}
+.f-links a{text-decoration:none;transition:color .15s}
+.f-links a:hover{color:#fff}
+.f-bottom{margin-top:44px;padding-top:24px;border-top:1px solid #333;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#6b7280}
+
+/* modal */
+.modal-bg{position:fixed;inset:0;background:rgba(10,14,24,.55);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.modal-bg.open{display:flex}
+.modal{background:var(--surface);border-radius:var(--r-lg);max-width:460px;width:100%;padding:36px;position:relative;box-shadow:var(--sh-xl)}
+.modal .close{position:absolute;top:18px;right:18px;width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--surface);cursor:pointer;font-size:17px;color:var(--ink-2)}
+.modal h3{font-size:1.45rem;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.modal .m-sub{color:var(--ink-2);font-size:.95rem;margin-bottom:26px}
+.m-step{display:flex;gap:16px;margin-bottom:20px}
+.m-step .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--grad);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.m-step p{font-size:.95rem;padding-top:5px}
+.m-step b{font-weight:700}
+.modal .btn{width:100%;justify-content:center;margin-top:8px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#"><img src="img/icon.jpg" alt=""><span data-i18n="brand">Мастер Класстер</span></a>
+    <nav class="nav-links">
+      <a href="#what" data-i18n="nav_what">Что это</a>
+      <a href="#how" data-i18n="nav_how">Как работает</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="lang-ru" class="on">RU</button>
+      <button id="lang-en">EN</button>
+    </div>
+    <a class="btn btn-primary cta" href="#download" data-i18n="nav_cta">Скачать</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="download">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow" data-i18n="hero_eyebrow">Мастерская — по слотам</span>
+      <h1><span data-i18n="hero_h1a">Своя мастерская.</span><br><span class="grad" data-i18n="hero_h1b">На ближайшие 30 минут.</span></h1>
+      <p class="hero-sub" data-i18n-html="hero_sub"><b>Рабочий комплект</b> — это рабочее место и набор инструментов. Бронируешь слот в приложении, оплачиваешь онлайн, приходишь и делаешь.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" id="pwa-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+          <span data-i18n="btn_pwa">Установить PWA</span>
+        </button>
+        <a class="btn btn-dark" id="gp-btn" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.8c-.4.4-.6 1-.6 1.8v16.8c0 .8.2 1.4.6 1.8l.1.1 9.4-9.4v-.2L3.7 1.7l-.1.1z"/><path d="M16.2 15.3 13.1 12.2v-.2l3.1-3.1 3.8 2.1c1.1.6 1.1 1.6 0 2.2l-3.8 2.1z" opacity=".7"/><path d="M16.2 15.3 13 12.1 3.6 21.5c.4.4 1 .4 1.7 0l10.9-6.2z" opacity=".85"/><path d="M16.2 8.9 5.3 2.7c-.7-.4-1.3-.4-1.7 0L13 12.1l3.2-3.2z" opacity=".5"/></svg>
+          <span>Google Play</span><span class="soon-tag" data-i18n="soon" hidden>скоро</span>
+        </a>
+        <a class="btn btn-ghost" id="rs-btn" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 8.5C4 6 6 4 8.5 4h7C18 4 20 6 20 8.5v7c0 2.5-2 4.5-4.5 4.5h-7C6 20 4 18 4 15.5v-7zm5.2 6.9 6.3-3.1c.4-.2.4-.7 0-.9L9.2 8.3c-.4-.2-.9.1-.9.5v6.1c0 .4.5.7.9.5z"/></svg>
+          <span>RuStore</span><span class="soon-tag" data-i18n="soon" hidden>скоро</span>
+        </a>
+      </div>
+      <p class="hero-note" data-i18n="hero_note">Веб-версия работает в любом браузере — app.mclasster.ru</p>
+    </div>
+    <div class="hero-phone-zone">
+      <div class="phone tilt"><div class="screen"><img data-shot="home" alt=""></div></div>
+      <div class="float-pill fp1">15:30 – 16:00</div>
+      <div class="float-pill busy fp2">16:00 – 16:30</div>
+      <div class="float-pill fp3" data-i18n="pill_price">200 ₽ / 30 мин</div>
+    </div>
+  </div>
+  <div class="slot-strip" aria-hidden="true"><div class="slot-track" id="slot-track"></div></div>
+</section>
+
+<!-- WHAT -->
+<section id="what">
+  <div class="wrap">
+    <p class="sec-label" data-i18n="what_label">Что это</p>
+    <h2 class="rv" data-i18n="what_h2">Инструменты, которые не нужно покупать</h2>
+    <div class="qa-list">
+      <div class="qa rv"><span class="q" data-i18n="qa1q">Свой 3D-принтер дома?</span><span class="a" data-i18n="qa1a">Дорого.</span></div>
+      <div class="qa rv"><span class="q" data-i18n="qa2q">Гараж под верстак и станки?</span><span class="a" data-i18n="qa2a">Негде.</span></div>
+      <div class="qa rv"><span class="q" data-i18n="qa3q">Инструмент ради одной поделки?</span><span class="a" data-i18n="qa3a">Незачем.</span></div>
+      <div class="qa hit rv"><span class="q" data-i18n="qa4q">Рабочий комплект на 30 минут?</span><span class="a" data-i18n="qa4a">От 200 ₽.</span></div>
+    </div>
+    <div class="kit-def rv">
+      <div class="kit-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z"/></svg></div>
+      <p class="formula" data-i18n-html="kit_formula"><em>Рабочий комплект</em> = рабочее место + набор инструментов под задачу. Верстак с тисками, ручной инструмент, 3D-принтер, лазерный гравёр — выбираешь комплект, бронируешь время и работаешь.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how">
+  <div class="wrap">
+    <p class="sec-label" data-i18n="how_label">Как это работает</p>
+    <h2 class="rv" data-i18n="how_h2">От идеи до верстака — четыре шага</h2>
+    <div class="steps">
+      <div class="step rv">
+        <span class="num">01</span>
+        <div class="shot"><img data-shot="workshop" alt="" loading="lazy"></div>
+        <h3 data-i18n="s1h">Выбери мастерскую</h3>
+        <p data-i18n="s1p">Адрес, описание, оснащение и часы работы — всё в карточке.</p>
+      </div>
+      <div class="step rv">
+        <span class="num">02</span>
+        <div class="shot"><img data-shot="slots" alt="" loading="lazy"></div>
+        <h3 data-i18n="s2h">Выбери дату и слоты</h3>
+        <p data-i18n="s2p">Свободное время видно сразу. Один слот — 30 минут, можно взять несколько подряд.</p>
+      </div>
+      <div class="step rv">
+        <span class="num">03</span>
+        <div class="shot"><img data-shot="confirm" alt="" loading="lazy"></div>
+        <h3 data-i18n="s3h">Подтверди и оплати</h3>
+        <p data-i18n="s3p">Пополняешь баланс онлайн, бронь оплачивается с баланса после подтверждения мастерской.</p>
+      </div>
+      <div class="step rv">
+        <span class="num">04</span>
+        <div class="shot"><img data-shot="session" alt="" loading="lazy"></div>
+        <h3 data-i18n="s4h">Приходи и работай</h3>
+        <p data-i18n="s4p">Таймер сессии, номер брони и контакты мастерской — под рукой в приложении.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="screens">
+  <div class="wrap">
+    <div class="gal-head">
+      <div>
+        <p class="sec-label" data-i18n="gal_label">Приложение</p>
+        <h2 class="rv" data-i18n="gal_h2">Всё бронирование — в одном экране телефона</h2>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="gallery">
+      <figure class="gal-item rv"><div class="shot"><img data-shot="home" alt="" loading="lazy"></div><figcaption data-i18n="g_home">Главный экран: дата и комплекты</figcaption></figure>
+      <figure class="gal-item rv"><div class="shot"><img data-shot="workshop" alt="" loading="lazy"></div><figcaption data-i18n="g_workshop">Карточка мастерской</figcaption></figure>
+      <figure class="gal-item rv"><div class="shot"><img data-shot="slots" alt="" loading="lazy"></div><figcaption data-i18n="g_slots">Выбор слотов</figcaption></figure>
+      <figure class="gal-item rv"><div class="shot"><img data-shot="confirm" alt="" loading="lazy"></div><figcaption data-i18n="g_confirm">Подтверждение брони</figcaption></figure>
+      <figure class="gal-item rv"><div class="shot"><img data-shot="session" alt="" loading="lazy"></div><figcaption data-i18n="g_session">Активная сессия</figcaption></figure>
+      <figure class="gal-item rv"><div class="shot"><img data-shot="profile" alt="" loading="lazy"></div><figcaption data-i18n="g_profile">Профиль и баланс</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section id="price">
+  <div class="wrap">
+    <div class="price-band rv">
+      <div>
+        <div class="big" data-i18n="price_big">От 200 ₽ за слот</div>
+        <p class="sub" data-i18n="price_sub">Один слот — 30 минут работы. Цена зависит от комплекта и видна до бронирования. Никаких подписок и абонементов.</p>
+      </div>
+      <a class="btn" href="#download" data-i18n="price_btn">Забронировать слот</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <p class="sec-label">FAQ</p>
+    <h2 class="rv" data-i18n="faq_h2">Вопросы, которые задают первыми</h2>
+    <div class="faq rv">
+      <details>
+        <summary><span data-i18n="f1q">Что входит в рабочий комплект?</span><span class="x">+</span></summary>
+        <p class="ans" data-i18n="f1a">Рабочее место и закреплённый за ним набор инструментов: например, верстак с тисками и набором ручного инструмента или стол с 3D-принтером. Состав каждого комплекта описан в его карточке в приложении.</p>
+      </details>
+      <details>
+        <summary><span data-i18n="f2q">Как происходит оплата?</span><span class="x">+</span></summary>
+        <p class="ans" data-i18n="f2a">В приложении есть внутренний баланс. Пополняешь его онлайн банковской картой (через ЮKassa), а стоимость брони списывается с баланса после подтверждения мастерской.</p>
+      </details>
+      <details>
+        <summary><span data-i18n="f3q">Можно ли отменить бронирование?</span><span class="x">+</span></summary>
+        <p class="ans" data-i18n-html="f3a">Да, бронирование можно отменить в приложении. Условия отмены и возвратов описаны в <a href="https://legal.mclasster.ru/payment-and-refund" target="_blank" rel="noopener">правилах оплаты и возвратов</a>.</p>
+      </details>
+      <details>
+        <summary><span data-i18n="f4q">Нужно ли приносить свой инструмент?</span><span class="x">+</span></summary>
+        <p class="ans" data-i18n="f4a">Нет, всё необходимое уже входит в комплект. Свои материалы и расходники — приноси, если они нужны для твоего проекта.</p>
+      </details>
+      <details>
+        <summary><span data-i18n="f5q">Как связаться с мастерской?</span><span class="x">+</span></summary>
+        <p class="ans" data-i18n="f5a">Прямо из приложения: в карточке мастерской и на экране сессии есть кнопки звонка и сообщения. Общие вопросы — на info@mclasster.ru.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts">
+  <div class="wrap">
+    <p class="sec-label" data-i18n="c_label">Контакты</p>
+    <h2 class="rv" data-i18n="c_h2">Напишите нам</h2>
+    <a class="mail-link rv" href="mailto:info@mclasster.ru">info@mclasster.ru</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="f-brand"><img src="img/icon.jpg" alt=""><span data-i18n="brand">Мастер Класстер</span></div>
+        <p style="margin-top:14px;max-width:34ch" data-i18n="f_tag">Бронирование рабочих комплектов в мастерских.</p>
+      </div>
+      <div class="f-links">
+        <a href="https://legal.mclasster.ru/user-agreement" target="_blank" rel="noopener" data-i18n="l_ua">Пользовательское соглашение</a>
+        <a href="https://legal.mclasster.ru/privacy-policy" target="_blank" rel="noopener" data-i18n="l_pp">Политика конфиденциальности</a>
+        <a href="https://legal.mclasster.ru/payment-and-refund" target="_blank" rel="noopener" data-i18n="l_pr">Оплата и возвраты</a>
+        <a href="https://legal.mclasster.ru/delete-account" target="_blank" rel="noopener" data-i18n="l_da">Удаление аккаунта</a>
+      </div>
+      <div class="f-links">
+        <a href="mailto:info@mclasster.ru">info@mclasster.ru</a>
+        <a href="https://app.mclasster.ru" target="_blank" rel="noopener" data-i18n="l_web">Веб-версия приложения</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span id="year"></span> <span data-i18n="brand">Мастер Класстер</span> · mclasster.ru</span>
+      <span data-i18n="f_tax">Услуги оказывает плательщик налога на профессиональный доход. НДС не облагается.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- PWA MODAL -->
+<div class="modal-bg" id="pwa-modal" role="dialog" aria-modal="true" aria-labelledby="pwa-title">
+  <div class="modal">
+    <button class="close" id="pwa-close" aria-label="Close">✕</button>
+    <h3 id="pwa-title" data-i18n="m_title">Установка на телефон</h3>
+    <p class="m-sub" data-i18n="m_sub">PWA — это приложение, которое ставится прямо из браузера, без магазина.</p>
+    <div class="m-step"><span class="n">1</span><p data-i18n-html="m_s1">Открой <b>app.mclasster.ru</b> в браузере телефона (Chrome, Safari или Яндекс Браузер).</p></div>
+    <div class="m-step"><span class="n">2</span><p data-i18n-html="m_s2">В меню браузера выбери <b>«Добавить на главный экран»</b> или <b>«Установить приложение»</b> — иконка появится рядом с остальными.</p></div>
+    <a class="btn btn-primary" href="https://app.mclasster.ru" target="_blank" rel="noopener" data-i18n="m_open">Открыть веб-версию</a>
+  </div>
+</div>
+
+<script>
+/* ============ CONFIG — заполни ссылки на сторы ============ */
+const CONFIG = {
+  GOOGLE_PLAY_URL: "",   // например: https://play.google.com/store/apps/details?id=com.dalmakarov.masterclassterapp
+  RUSTORE_URL:     "https://www.rustore.ru/catalog/app/com.dalmakarov.masterclassterapp",   // например: https://www.rustore.ru/catalog/app/com.dalmakarov.masterclassterapp
+  PWA_URL:         "https://app.mclasster.ru"
+};
+/* ========================================================== */
+
+const I18N = {
+ru: {
+  brand:"Мастер Класстер", nav_what:"Что это", nav_how:"Как работает", nav_contacts:"Контакты", nav_cta:"Скачать",
+  hero_eyebrow:"Мастерская — по слотам",
+  hero_h1a:"Своя мастерская.", hero_h1b:"На ближайшие 30 минут.",
+  hero_sub:"<b>Рабочий комплект</b> — это рабочее место и набор инструментов. Бронируешь слот в приложении, оплачиваешь онлайн, приходишь и делаешь.",
+  btn_pwa:"Установить PWA", soon:"скоро",
+  hero_note:"Веб-версия работает в любом браузере — app.mclasster.ru",
+  pill_price:"200 ₽ / 30 мин",
+  what_label:"Что это", what_h2:"Инструменты, которые не нужно покупать",
+  qa1q:"Свой 3D-принтер дома?", qa1a:"Дорого.",
+  qa2q:"Гараж под верстак и станки?", qa2a:"Негде.",
+  qa3q:"Инструмент ради одной поделки?", qa3a:"Незачем.",
+  qa4q:"Рабочий комплект на 30 минут?", qa4a:"От 200 ₽.",
+  kit_formula:"<em>Рабочий комплект</em> = рабочее место + набор инструментов под задачу. Верстак с тисками, ручной инструмент, 3D-принтер, лазерный гравёр — выбираешь комплект, бронируешь время и работаешь.",
+  how_label:"Как это работает", how_h2:"От идеи до верстака — четыре шага",
+  s1h:"Выбери мастерскую", s1p:"Адрес, описание, оснащение и часы работы — всё в карточке.",
+  s2h:"Выбери дату и слоты", s2p:"Свободное время видно сразу. Один слот — 30 минут, можно взять несколько подряд.",
+  s3h:"Подтверди и оплати", s3p:"Пополняешь баланс онлайн, бронь оплачивается с баланса после подтверждения мастерской.",
+  s4h:"Приходи и работай", s4p:"Таймер сессии, номер брони и контакты мастерской — под рукой в приложении.",
+  gal_label:"Приложение", gal_h2:"Всё бронирование — в одном экране телефона",
+  g_home:"Главный экран: дата и комплекты", g_workshop:"Карточка мастерской", g_slots:"Выбор слотов",
+  g_confirm:"Подтверждение брони", g_session:"Активная сессия", g_profile:"Профиль и баланс",
+  price_big:"От 200 ₽ за слот", price_sub:"Один слот — 30 минут работы. Цена зависит от комплекта и видна до бронирования. Никаких подписок и абонементов.", price_btn:"Забронировать слот",
+  faq_h2:"Вопросы, которые задают первыми",
+  f1q:"Что входит в рабочий комплект?", f1a:"Рабочее место и закреплённый за ним набор инструментов: например, верстак с тисками и набором ручного инструмента или стол с 3D-принтером. Состав каждого комплекта описан в его карточке в приложении.",
+  f2q:"Как происходит оплата?", f2a:"В приложении есть внутренний баланс. Пополняешь его онлайн банковской картой (через ЮKassa), а стоимость брони списывается с баланса после подтверждения мастерской.",
+  f3q:"Можно ли отменить бронирование?", f3a:"Да, бронирование можно отменить в приложении. Условия отмены и возвратов описаны в <a href='https://legal.mclasster.ru/payment-and-refund' target='_blank' rel='noopener'>правилах оплаты и возвратов</a>.",
+  f4q:"Нужно ли приносить свой инструмент?", f4a:"Нет, всё необходимое уже входит в комплект. Свои материалы и расходники — приноси, если они нужны для твоего проекта.",
+  f5q:"Как связаться с мастерской?", f5a:"Прямо из приложения: в карточке мастерской и на экране сессии есть кнопки звонка и сообщения. Общие вопросы — на info@mclasster.ru.",
+  c_label:"Контакты", c_h2:"Напишите нам",
+  f_tag:"Бронирование рабочих комплектов в мастерских.",
+  l_ua:"Пользовательское соглашение", l_pp:"Политика конфиденциальности", l_pr:"Оплата и возвраты", l_da:"Удаление аккаунта", l_web:"Веб-версия приложения",
+  f_tax:"Услуги оказывает плательщик налога на профессиональный доход. НДС не облагается.",
+  m_title:"Установка на телефон", m_sub:"PWA — это приложение, которое ставится прямо из браузера, без магазина.",
+  m_s1:"Открой <b>app.mclasster.ru</b> в браузере телефона (Chrome, Safari или Яндекс Браузер).",
+  m_s2:"В меню браузера выбери <b>«Добавить на главный экран»</b> или <b>«Установить приложение»</b> — иконка появится рядом с остальными.",
+  m_open:"Открыть веб-версию",
+  title:"Мастер Класстер — бронируй рабочий комплект в мастерской",
+  desc:"Рабочий комплект = рабочее место + набор инструментов. Бронируй слот на 30 минут, оплачивай онлайн, приходи и делай. От 200 ₽ за слот."
+},
+en: {
+  brand:"Master Classter", nav_what:"What it is", nav_how:"How it works", nav_contacts:"Contacts", nav_cta:"Get the app",
+  hero_eyebrow:"A workshop — by the slot",
+  hero_h1a:"Your own workshop.", hero_h1b:"For the next 30 minutes.",
+  hero_sub:"A <b>workspace kit</b> is a workbench plus a set of tools. Book a slot in the app, pay online, show up and make things.",
+  btn_pwa:"Install PWA", soon:"soon",
+  hero_note:"The web version runs in any browser — app.mclasster.ru",
+  pill_price:"200 ₽ / 30 min",
+  what_label:"What it is", what_h2:"Tools you don't have to buy",
+  qa1q:"A 3D printer at home?", qa1a:"Pricey.",
+  qa2q:"A garage for a workbench?", qa2a:"No room.",
+  qa3q:"Tools for one small project?", qa3a:"No point.",
+  qa4q:"A workspace kit for 30 minutes?", qa4a:"From 200 ₽.",
+  kit_formula:"A <em>workspace kit</em> = a workspace + the tools for the job. A workbench with a vise, hand tools, a 3D printer, a laser engraver — pick a kit, book a time and get to work.",
+  how_label:"How it works", how_h2:"From idea to workbench in four steps",
+  s1h:"Pick a workshop", s1p:"Address, description, equipment and opening hours — all in one card.",
+  s2h:"Pick a date and slots", s2p:"Available times are visible right away. One slot is 30 minutes; book several in a row.",
+  s3h:"Confirm and pay", s3p:"Top up your balance online; the booking is paid from your balance once the workshop confirms it.",
+  s4h:"Show up and work", s4p:"Session timer, booking number and workshop contacts — right in the app.",
+  gal_label:"The app", gal_h2:"The whole booking fits on one phone screen",
+  g_home:"Home: date and kits", g_workshop:"Workshop card", g_slots:"Slot picker",
+  g_confirm:"Booking confirmation", g_session:"Active session", g_profile:"Profile and balance",
+  price_big:"From 200 ₽ per slot", price_sub:"One slot is 30 minutes of work. The price depends on the kit and is shown before you book. No subscriptions, no memberships.", price_btn:"Book a slot",
+  faq_h2:"The questions people ask first",
+  f1q:"What's inside a workspace kit?", f1a:"A workspace and the set of tools assigned to it: for example, a workbench with a vise and hand tools, or a desk with a 3D printer. Each kit's contents are listed in its card in the app.",
+  f2q:"How do payments work?", f2a:"The app has an internal balance. You top it up online with a bank card (via YooKassa), and the booking cost is charged from your balance once the workshop confirms it.",
+  f3q:"Can I cancel a booking?", f3a:"Yes, bookings can be cancelled in the app. Cancellation and refund terms are described in the <a href='https://legal.mclasster.ru/payment-and-refund' target='_blank' rel='noopener'>payment and refund policy</a>.",
+  f4q:"Do I need to bring my own tools?", f4a:"No — everything you need is included in the kit. Bring your own materials and consumables if your project requires them.",
+  f5q:"How do I contact the workshop?", f5a:"Straight from the app: the workshop card and the session screen have call and message buttons. For general questions, write to info@mclasster.ru.",
+  c_label:"Contacts", c_h2:"Get in touch",
+  f_tag:"Workspace kit booking for workshops.",
+  l_ua:"User agreement", l_pp:"Privacy policy", l_pr:"Payment and refunds", l_da:"Delete account", l_web:"Web app",
+  f_tax:"Services are provided by a professional income tax payer. Not subject to VAT.",
+  m_title:"Install on your phone", m_sub:"A PWA is an app installed straight from the browser — no app store needed.",
+  m_s1:"Open <b>app.mclasster.ru</b> in your phone's browser (Chrome or Safari).",
+  m_s2:"In the browser menu, choose <b>“Add to Home Screen”</b> or <b>“Install app”</b> — the icon will appear with the rest.",
+  m_open:"Open the web app",
+  title:"Master Classter — book a workspace kit in a workshop",
+  desc:"A workspace kit = a workbench + tools. Book a 30-minute slot, pay online, show up and make things. From 200 ₽ per slot."
+}};
+
+const SHOTS = ["home","workshop","slots","confirm","session","profile"];
+let lang = localStorage.getItem("mc_lang") || "ru";
+
+function applyLang(l){
+  lang = l; localStorage.setItem("mc_lang", l);
+  document.documentElement.lang = l;
+  const t = I18N[l];
+  document.querySelectorAll("[data-i18n]").forEach(el => { const k = el.dataset.i18n; if (t[k] !== undefined) el.textContent = t[k]; });
+  document.querySelectorAll("[data-i18n-html]").forEach(el => { const k = el.dataset.i18nHtml; if (t[k] !== undefined) el.innerHTML = t[k]; });
+  document.querySelectorAll("img[data-shot]").forEach(img => { img.src = `img/${img.dataset.shot}_${l}.jpg`; });
+  document.title = t.title;
+  document.querySelector('meta[name="description"]').setAttribute("content", t.desc);
+  document.getElementById("lang-ru").classList.toggle("on", l === "ru");
+  document.getElementById("lang-en").classList.toggle("on", l === "en");
+}
+document.getElementById("lang-ru").onclick = () => applyLang("ru");
+document.getElementById("lang-en").onclick = () => applyLang("en");
+
+/* store buttons */
+function wireStore(id, url){
+  const btn = document.getElementById(id);
+  if (url) { btn.href = url; }
+  else { btn.classList.add("soon"); btn.removeAttribute("href"); btn.querySelector(".soon-tag").hidden = false; }
+}
+wireStore("gp-btn", CONFIG.GOOGLE_PLAY_URL);
+wireStore("rs-btn", CONFIG.RUSTORE_URL);
+document.querySelector("#pwa-modal .btn").href = CONFIG.PWA_URL;
+
+/* PWA modal */
+const modal = document.getElementById("pwa-modal");
+document.getElementById("pwa-btn").onclick = () => modal.classList.add("open");
+document.getElementById("pwa-close").onclick = () => modal.classList.remove("open");
+modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("open"); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") modal.classList.remove("open"); });
+
+/* slot ticker */
+(function(){
+  const track = document.getElementById("slot-track");
+  const slots = [];
+  for (let h = 10; h < 22; h++) for (const m of [0,30]) {
+    const a = `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}`;
+    const eh = m === 30 ? h+1 : h, em = m === 30 ? 0 : 30;
+    slots.push(`${a} – ${String(eh).padStart(2,"0")}:${String(em).padStart(2,"0")}`);
+  }
+  const sel = new Set([3,4,9,14,15,16,20]);
+  const html = slots.map((s,i)=>`<span class="slot${sel.has(i)?" sel":""}">${s}</span>`).join("");
+  track.innerHTML = html + html; /* duplicated for seamless loop */
+})();
+
+/* reveal on scroll */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }), {threshold:.12});
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+
+document.getElementById("year").textContent = new Date().getFullYear();
+applyLang(lang);
+</script>
+</body>
+</html>
